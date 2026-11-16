@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Plano de Gastos</title>
+<style>
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --surface-2:#f1efea; --text:#1d1c1a; --muted:#5f5b54; --line:#e2dfd8;
+  --accent:#1f5f8b; --accent-bg:#e4eef6;
+  --good:#2b7149; --good-bg:#e5f1e9; --warn:#8a5d00; --warn-bg:#fbf0d6; --bad:#a8362b; --bad-bg:#f7e2de;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141412; --surface:#1d1c1a; --surface-2:#262522; --text:#ecebe7; --muted:#a8a49c; --line:#34322e;
+    --accent:#86bbe0; --accent-bg:#1c2b36;
+    --good:#86d1a2; --good-bg:#1b3024; --warn:#e8c26a; --warn-bg:#352c16; --bad:#f2958a; --bad-bg:#3b211d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141412; --surface:#1d1c1a; --surface-2:#262522; --text:#ecebe7; --muted:#a8a49c; --line:#34322e;
+  --accent:#86bbe0; --accent-bg:#1c2b36;
+  --good:#86d1a2; --good-bg:#1b3024; --warn:#e8c26a; --warn-bg:#352c16; --bad:#f2958a; --bad-bg:#3b211d;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+main{max-width:900px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:1.85rem;line-height:1.2;margin:.25rem 0 .75rem;letter-spacing:-.01em}
+h2{font-size:1.3rem;margin:2.75rem 0 .75rem;letter-spacing:-.005em}
+h3{font-size:1.05rem;margin:0}
+p{margin:.5rem 0}
+.eyebrow{color:var(--muted);font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;margin:0}
+.lead{color:var(--muted);max-width:68ch}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.muted{color:var(--muted)}
+small{font-size:.85rem}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:1rem}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.tile .label{font-size:.85rem;color:var(--muted)}
+.tile .value{font-size:1.6rem;font-weight:650;margin:.15rem 0;font-variant-numeric:tabular-nums}
+.tile .sub{font-size:.82rem;color:var(--muted)}
+
+.note{border-radius:12px;padding:14px 16px;margin:12px 0;border:1px solid transparent}
+.note.warn{background:var(--warn-bg);border-color:color-mix(in srgb,var(--warn) 25%,transparent)}
+.note.good{background:var(--good-bg);border-color:color-mix(in srgb,var(--good) 25%,transparent)}
+.note.bad{background:var(--bad-bg);border-color:color-mix(in srgb,var(--bad) 25%,transparent)}
+.note.info{background:var(--accent-bg);border-color:color-mix(in srgb,var(--accent) 25%,transparent)}
+.note p:first-child{margin-top:0}.note p:last-child{margin-bottom:0}
+
+ol.rules{padding-left:1.3rem;margin:.5rem 0}
+ol.rules li{margin:.45rem 0}
+
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden}
+.step-head{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-bottom:1px solid var(--line)}
+.badge{flex:0 0 auto;background:var(--accent);color:var(--surface);font-weight:700;border-radius:8px;padding:4px 9px;font-size:.85rem;font-variant-numeric:tabular-nums}
+.step-head .src{color:var(--muted);font-size:.9rem;margin-top:2px}
+.step-body{padding:6px 16px 14px}
+
+.table-wrap{overflow-x:auto;margin:6px 0}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600}
+td.r,th.r{text-align:right}
+tr.total td{font-weight:650;border-bottom:none}
+tr.sub td{color:var(--muted);border-bottom:none;padding-top:0}
+td.why{color:var(--muted);font-size:.88rem}
+tr.done td:not(.chk){text-decoration:line-through;color:var(--muted)}
+td.chk{width:34px}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--good);cursor:pointer;margin:2px 0 0}
+.neg{color:var(--bad);font-weight:650}
+.pos{color:var(--good);font-weight:650}
+
+ul.checks{list-style:none;padding:0;margin:.5rem 0}
+ul.checks li{display:flex;gap:10px;align-items:flex-start;padding:6px 0}
+ul.checks li.done span{text-decoration:line-through;color:var(--muted)}
+
+.lever{display:grid;grid-template-columns:auto 1fr;gap:10px 14px;align-items:start;margin:12px 0}
+.lever .n{width:28px;height:28px;border-radius:50%;background:var(--accent-bg);color:var(--accent);font-weight:700;display:grid;place-items:center;font-size:.9rem}
+
+footer{margin-top:3rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:560px){
+  h1{font-size:1.5rem}
+  th,td{padding:8px 6px}
+  td.why{font-size:.82rem}
+}
+@media (max-width:640px){
+  table.stack thead{display:none}
+  table.stack tbody tr{display:grid;grid-template-columns:28px 1fr auto;column-gap:10px;row-gap:2px;padding:10px 0;border-bottom:1px solid var(--line)}
+  table.stack.nochk tbody tr{grid-template-columns:1fr auto}
+  table.stack td{border:none;padding:0;display:block}
+  table.stack td.is-empty{display:none}
+  table.stack td.c-chk{grid-column:1;grid-row:1 / span 4}
+  table.stack td.c-name{grid-column:2;grid-row:1;font-weight:600}
+  table.stack td.c-amt,table.stack td.c-rate{grid-column:3;grid-row:1;text-align:right}
+  table.stack td.c-due,table.stack td.c-owed,table.stack td.c-why{grid-column:2 / -1}
+  table.stack.nochk td.c-name{grid-column:1}
+  table.stack.nochk td.c-rate{grid-column:2}
+  table.stack.nochk td.c-owed,table.stack.nochk td.c-why{grid-column:1 / -1}
+  table.stack td.c-due{font-size:.85rem;color:var(--muted)}
+  table.stack td.c-due::before{content:"Vence: "}
+  table.stack tr.grp{display:block;padding:16px 0 4px;border-bottom:none}
+  table.stack tr.grp td{display:block}
+  table.stack tr.total,table.stack tr.sub{grid-template-columns:1fr auto;padding:8px 0;border-bottom:none}
+  table.stack tr.total td.c-lab,table.stack tr.sub td.c-lab{grid-column:1;grid-row:1}
+  table.stack tr.total td.c-amt,table.stack tr.sub td.c-amt{grid-column:2;grid-row:1}
+  table.stack tr.total td.c-why,table.stack tr.sub td.c-why{grid-column:1 / -1}
+}
+@media print{
+  body{background:#fff}
+  .step,.tile{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<main>
+
+<p class="eyebrow">Plano de gastos · montado em 14/11/2026</p>
+<h1>Como atravessar novembro e dezembro, e virar o jogo em 2027</h1>
+<p class="lead">Juntei seus contracheques, os 3 contratos de empréstimo, as faturas dos cartões e os prints do 99Pay e do Mercado Pago com o que você me contou (ajuda de R$ 300, internet, celular, saldo e 13º). Aqui está o que pagar, quando e com qual dinheiro. Marque cada item conforme for pagando.</p>
+
+<h2>A situação em números</h2>
+<div class="tiles">
+  <div class="tile"><div class="label">Renda por mês (a partir de dezembro)</div><div class="value">R$ 1.128</div><div class="sub">adiantamento ~R$ 612 + saldo do salário ~R$ 216 + ajuda R$ 300</div></div>
+  <div class="tile"><div class="label">Parcelas fixas fora da folha</div><div class="value">R$ 948/mês</div><div class="sub">99Pay 401 · Internet 180 · Pan 168 · Serasa 74 · Mercado Pago 66 · Celular 59</div></div>
+  <div class="tile"><div class="label">Dívida nos cartões</div><div class="value">R$ 7.352</div><div class="sub">faturas de novembro R$ 5.348 + compras parceladas R$ 2.004</div></div>
+  <div class="tile"><div class="label">Consignados descontados no salário</div><div class="value">R$ 780/mês</div><div class="sub">Nubank R$ 638,29 até jun/2030 + 21 Bank R$ 141,82 até nov/2030</div></div>
+</div>
+
+<div class="note bad">
+  <p><strong>Do jeito que está, a conta não fecha.</strong> Depois das parcelas fixas, sobram uns R$ 180 por mês para os cartões e o dia a dia. Só os cartões, parcelados pelos bancos, pediriam mais de R$ 1.000 por mês. Não é um problema só de controle neste mês: tem mais parcela do que renda.</p>
+  <p>O plano tem três partes: <strong>parar de criar dívida</strong>, <strong>usar o 13º no que está vencendo e no que cobra mais juros</strong> e <strong>renegociar o resto para caber na renda</strong>.</p>
+</div>
+
+<div class="note good">
+  <p><strong>A virada tem data.</strong> O 99Pay termina em agosto de 2027, o Pan em setembro e o Mercado Pago em outubro. A partir daí sobram cerca de <strong>R$ 500 por mês</strong> (o acordo da Serasa continua até 2030, mas já está nessa conta). O objetivo é chegar lá sem atrasar nada e sem dívida nova.</p>
+</div>
+
+<div class="note info">
+  <p><strong>De onde veio a bola de neve:</strong> em outubro, cerca de <strong>R$ 1.700</strong> saíram dos cartões para o 99Pay (Pix, boletos e recarga no crédito). Isso é pagar uma dívida com outra, e cada volta cobra juros e tarifa. Nas faturas também aparecem muitas corridas de Uber, lanches e delivery, e várias assinaturas. Por cima disso vieram dois empréstimos novos (Pan em setembro e 21 Bank em outubro).</p>
+</div>
+
+<h2>Regras a partir de hoje</h2>
+<ol class="rules">
+  <li><strong>Nenhum cartão de crédito até a virada</strong>, inclusive o Nubank PJ. Apague os cartões salvos no Uber, 99, iFood, Amazon e Google Play.</li>
+  <li><strong>Nada de Pix, boleto ou recarga “no crédito”</strong> pelo 99Pay, PicPay ou Nubank.</li>
+  <li><strong>Nenhum empréstimo novo.</strong> O do 21 Bank (você recebeu R$ 2.354,74) vai custar R$ 6.807,36 no total. O consignado Nubank (R$ 10.499,49) vai custar R$ 30.637,93.</li>
+  <li><strong>Cancele as assinaturas só suas</strong>: Google One (R$ 24,99), YouTube Premium (R$ 26,90), Uber One, as duas cobranças do Google no Revolut (R$ 11,99 e R$ 8,99) e o app “Gossip” do Google Play.</li>
+  <li><strong>Disney+ e Prime Video (divididos em 4): manter, mas tirar do seu cartão.</strong> Hoje o valor cheio cai todo mês no seu cartão Amazon: Disney+ R$ 69,90 + Prime R$ 19,90 + “sem anúncios” R$ 10,00 = R$ 99,80, num cartão que cobra 11,2% ao mês no rotativo. Peça para uma das outras três pessoas colocar as assinaturas no cartão dela e mande sua parte (~R$ 25) por Pix todo mês. Quando o cartão Amazon for renegociado, ele costuma ser bloqueado e as assinaturas parariam de qualquer jeito.</li>
+  <li><strong>Transporte só com o VT, comida com o VR e a cesta.</strong> Uber e delivery ficam para depois da virada.</li>
+</ol>
+
+<h2>Passo a passo</h2>
+
+<section class="step">
+  <div class="step-head"><span class="badge">14–15/11</span><div><h3>Hoje e amanhã</h3><div class="src">Sem gastar nada</div></div></div>
+  <div class="step-body">
+    <ul class="checks">
+      <li><input type="checkbox" data-k="s0-1" aria-label="feito"><span>Cancelar as assinaturas só suas (lista acima)</span></li>
+      <li><input type="checkbox" data-k="s0-1b" aria-label="feito"><span>Combinar com o grupo quem passa a pagar Disney+ e Prime Video no próprio cartão</span></li>
+      <li><input type="checkbox" data-k="s0-5" aria-label="feito"><span>Nubank: já apareceu a opção de 18x de R$ 235,48. Antes de aceitar, pergunte se há prazo maior (24x ou mais), se tem entrada e quando vence a 1ª parcela (veja “Renegociar”)</span></li>
+      <li><input type="checkbox" data-k="s0-2" aria-label="feito"><span>Apagar os cartões salvos nos apps (Uber, 99, iFood, Amazon, Google Play)</span></li>
+      <li><input type="checkbox" data-k="s0-3" aria-label="feito"><span>Perguntar ao RH a data exata da 1ª parcela do 13º. Se cair antes do dia 30, os atrasos do passo 2 ficam menores</span></li>
+      <li><input type="checkbox" data-k="s0-4b" aria-label="feito"><span>Avisar o Pan (app ou chat) que você paga as parcelas de outubro e novembro até 30/11 e pedir o boleto atualizado das duas</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="step">
+  <div class="step-head"><span class="badge">16/11</span><div><h3>Segunda-feira: pagar os cartões</h3><div class="src">Dinheiro: saldo de <span class="num">R$ 876,65</span></div></div></div>
+  <div class="step-body">
+    <div class="table-wrap"><table class="stack" data-cols="chk,name,due,amt,why">
+      <thead><tr><th></th><th>Conta</th><th>Vence</th><th class="r">Pagar</th><th>Por quê</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><input type="checkbox" data-k="s1-1" aria-label="pago"></td><td>Nubank (cartão)</td><td>16/11</td><td class="r num">R$ 390,69</td><td class="why">Mínimo, a não ser que o acordo de 18x de R$ 235,48 dispense a entrada. Não escolha o 8x de R$ 408,86.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s1-2" aria-label="pago"></td><td>Caixa (cartão)</td><td>16/11</td><td class="r num">R$ 247,45</td><td class="why">Valor exato da 1ª parcela do parcelamento em 11x (9,30% ao mês, em vez do rotativo de 13,10%). Pague os centavos exatos.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s1-3" aria-label="pago"></td><td>Amazon (cartão)</td><td>15/11*</td><td class="r num">R$ 95,00</td><td class="why">Mínimo</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s1-7" aria-label="pago"></td><td>Acordo Serasa (5ª de 48)</td><td>14/11</td><td class="r num">R$ 74,27</td><td class="why">Venceu ontem. Acordo atrasado pode ser cancelado e a dívida volta inteira, com o nome negativado de novo. Não deixe passar de segunda.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s1-4" aria-label="pago"></td><td>Revolut (cartão)</td><td>16/11</td><td class="r num">R$ 30,72</td><td class="why">Mínimo</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s1-5" aria-label="pago"></td><td>Itaú (cartão)</td><td>15/11*</td><td class="r num">R$ 16,22</td><td class="why">Mínimo</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s1-6" aria-label="pago"></td><td>PicPay (cartão)</td><td>15/11*</td><td class="r num">R$ 14,99</td><td class="why">Mínimo</td></tr>
+        <tr class="total"><td></td><td colspan="2">Total</td><td class="r num">R$ 869,34</td><td></td></tr>
+        <tr class="sub"><td></td><td colspan="2">Sobra</td><td class="r num">R$ 7,31</td><td class="why">Reserva até o 13º. O que não usar vai para dezembro.</td></tr>
+      </tbody>
+    </table></div>
+    <p><small class="muted">* 15/11 cai num domingo e é feriado. Pagando na segunda (16/11) não há multa.</small></p>
+    <div class="note warn"><p><strong>Por que os cartões vêm primeiro:</strong> atrasar um cartão gera multa e juros sobre a fatura inteira (até 17% ao mês no Nubank). Atrasar uma parcela de empréstimo cobra só sobre a parcela. Por isso os cartões ficam em dia agora e os empréstimos são pagos com o 13º.</p><p><strong>Se preferir uma reserva maior:</strong> deixar o mínimo do Revolut e do Itaú para o dia 30 deixa ~R$ 54 de reserva em vez de R$ 7. Custa uns R$ 6 de multa e juros e mais um atraso registrado nesses dois cartões.</p><p><strong>Geru (2ª de 4, R$ 102,00):</strong> venceu 15/11, domingo e feriado. Pagando hoje não teria multa, mas não cabe: ela vai para o 13º, no dia 30. Se o Nubank aceitar o 18x sem entrada, sobram R$ 390,69 hoje: aí pague a Geru hoje mesmo.</p><p><strong>Pague logo cedo:</strong> pelo contrato, o Pan pode tentar o débito automático de novo quando houver saldo. Se ele levar parte do dinheiro antes, os mínimos dos cartões não fecham.</p></div>
+  </div>
+</section>
+
+<section class="step">
+  <div class="step-head"><span class="badge">até 30/11</span><div><h3>Quando cair a 1ª parcela do 13º</h3><div class="src">Dinheiro: ~<span class="num">R$ 1.155</span>. Pague nesta ordem</div></div></div>
+  <div class="step-body">
+    <div class="table-wrap"><table class="stack" data-cols="chk,name,due,amt,why">
+      <thead><tr><th></th><th>Conta</th><th>Vence</th><th class="r">Pagar</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><input type="checkbox" data-k="s2-1" aria-label="pago"></td><td>99Pay</td><td>16/11</td><td class="r num">R$ 401,12</td><td class="why">+ multa/juros do atraso</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s2-2" aria-label="pago"></td><td>Empréstimo Pan: 2 parcelas</td><td>25/10 e 25/11</td><td class="r num">R$ 335,26</td><td class="why">A de outubro não foi debitada e já está atrasada. Pague as duas juntas pelo boleto atualizado.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s2-3" aria-label="pago"></td><td>Fatura PAN</td><td>12/11</td><td class="r num">R$ 151,75</td><td class="why">Já está atrasada. A multa e os juros do atraso vêm na fatura de dezembro.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s2-4" aria-label="pago"></td><td>Mercado Pago</td><td>09/11</td><td class="r num">R$ 68,43</td><td class="why">Já está atrasada. + multa/juros</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s2-8" aria-label="pago"></td><td>Geru (2ª de 4)</td><td>15/11</td><td class="r num">R$ 102,00</td><td class="why">Já atrasada. + multa/juros</td></tr>
+        <tr class="total"><td></td><td colspan="2">Total</td><td class="r num">R$ 1.058,56</td><td class="why">+ cerca de R$ 75 de multa e juros dos atrasos</td></tr>
+        <tr class="sub"><td></td><td colspan="2">Sobra</td><td class="r num">~R$ 29</td><td class="why">Guarde para o começo de dezembro (contando que a reserva de R$ 7,31 não foi usada)</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="step">
+  <div class="step-head"><span class="badge">1–10/12</span><div><h3>Renegociar: o passo mais importante</h3><div class="src">Antes das faturas de 15 e 16/12</div></div></div>
+  <div class="step-body">
+    <p>Com a sua renda, os parcelamentos que os bancos oferecem não cabem. Só o Nubank pediria de R$ 390 a R$ 480 por mês. Abra o chat ou ligue para cada um e peça <strong>renegociação da dívida</strong> (não “parcelamento de fatura”, que é mais caro).</p>
+    <div class="table-wrap"><table class="stack" data-cols="chk,name,owed,why">
+      <thead><tr><th></th><th>Com quem</th><th>Quanto deve (aprox.)</th><th>Onde</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><input type="checkbox" data-k="s3-1" aria-label="feito"></td><td>Nubank</td><td class="num">R$ 1.766 + juros (ofertas: 8 × R$ 408,86 = R$ 3.270,88 ou 18 × R$ 235,48 = R$ 4.238,64)</td><td class="why">App do Nubank, pelo chat. Fazer antes de 16/12, quando vence a 1ª parcela do parcelamento</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s3-2" aria-label="feito"></td><td>Caixa</td><td class="num">R$ 1.378 + R$ 886 em parcelas</td><td class="why">App Cartões Caixa ou 4004 0104</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s3-3" aria-label="feito"></td><td>Amazon (Bradescard)</td><td class="num">R$ 849 + R$ 828 em parcelas</td><td class="why">App Bradesco Cartões e Bradescard</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s3-4" aria-label="feito"></td><td>99Pay</td><td class="num">10 × R$ 401,12</td><td class="why">App da 99: peça o valor para quitar antes e se existe parcela menor</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note info">
+      <p><strong>Meta:</strong> as parcelas de Nubank, Caixa e Amazon somadas em <strong>até R$ 250 por mês</strong> (cerca de R$ 85 cada), com prazo longo (até 48x, como o seu acordo da Serasa), juros abaixo de 5% ao mês e 1ª parcela <strong>depois de 20/12</strong>, quando já caiu o 13º. Prazo longo custa mais juros, mas depois da virada (set/27) você pode antecipar parcelas com desconto.</p>
+      <p><strong>O que dizer:</strong> “Minha renda está comprometida e quero renegociar a dívida do cartão. Consigo pagar no máximo R$ 85 por mês. Qual a menor taxa e o maior prazo que vocês têm?”</p>
+      <p>Se só conseguir chegar a R$ 350 no total, faltam uns R$ 100 por mês a mais. Aí o caminho da Defensoria (ver “Se não der”) passa a ser o principal.</p>
+      <p><strong>O Nubank é o mais urgente.</strong> Entre as duas ofertas, a de <strong>18 × R$ 235,48 é melhor</strong>: a parcela é R$ 173 menor e os juros ao mês também são menores (~11,4% contra ~16,2%). Ela custa uns R$ 970 a mais no total só porque dura mais, e dá para antecipar parcelas com desconto depois da virada.</p>
+      <p><strong>Antes de aceitar, confirme:</strong> (1) se existe prazo maior, 24x ou mais; (2) se tem entrada e de quanto, porque sem entrada sobram R$ 390,69 na segunda para pagar o que está atrasado; (3) quando vence a 1ª parcela, de preferência depois de 20/12; (4) o “total a pagar”: juros e encargos não podem passar do valor original da dívida.</p>
+      <p>Mesmo com 18x, a parcela fica uns R$ 150 acima do que cabe (a meta era ~R$ 85 para o Nubank). Até agosto, cada mês fica uns R$ 150 pior, e o plano passa a depender de quitar o Pan e de renda extra, ou da Defensoria.</p>
+      <p>Não aceite acordo com parcela que não cabe. Um acordo que quebra no 2º mês volta tudo para o pior juro. Se ninguém aceitar, veja “Se não der” mais abaixo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="step">
+  <div class="step-head"><span class="badge">dezembro</span><div><h3>Pague conforme o dinheiro entra</h3><div class="src">Entradas: saldo do salário, ajuda, adiantamento e 2ª parcela do 13º</div></div></div>
+  <div class="step-body">
+    <div class="table-wrap"><table class="stack" data-cols="chk,name,due,amt">
+      <thead><tr><th></th><th>Conta</th><th>Vence</th><th class="r">Pagar</th></tr></thead>
+      <tbody>
+        <tr><td colspan="4"><strong>Começo do mês · saldo do salário (~R$ 216, ~07/12) + ajuda (R$ 300)</strong> <span class="muted">(+ ~R$ 29 guardados)</span></td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-1" aria-label="pago"></td><td>Mercado Pago</td><td>08/12</td><td class="r num">R$ 66,06</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-2" aria-label="pago"></td><td>Nubank PJ (parcelas R$ 90,18 + TIM celular R$ 58,99)</td><td>09/12</td><td class="r num">R$ 149,17</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-2b" aria-label="pago"></td><td>Fatura PAN (só a multa e os juros do atraso de novembro)</td><td>12/12</td><td class="r num">~R$ 20,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-2c" aria-label="pago"></td><td>Internet TIM de novembro (atrasar uns dias custa pouco: multa de 2%)</td><td>confirmar</td><td class="r num">R$ 179,99</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-2d" aria-label="pago"></td><td>Sua parte do Disney+ e Prime Video (Pix para quem paga)</td><td>—</td><td class="r num">~R$ 25,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-2e" aria-label="pago"></td><td>Acordo Serasa (6ª de 48)</td><td>14/12</td><td class="r num">R$ 74,27</td></tr>
+
+        <tr><td colspan="4"><strong>~15/12 · adiantamento, ~R$ 612</strong></td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-3" aria-label="pago"></td><td>99Pay (se o adiantamento cair dia 15, é só 1 dia de atraso)</td><td>14/12</td><td class="r num">R$ 401,12</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-5c" aria-label="pago"></td><td>Itaú: quitar</td><td>15/12</td><td class="r num">~R$ 120,85</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-6" aria-label="pago"></td><td>Revolut: quitar</td><td>16/12</td><td class="r num">~R$ 20,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-4a" aria-label="pago"></td><td>PicPay: pagar o que sobrou do adiantamento (confira se passa do mínimo da fatura)</td><td>15/12</td><td class="r num">~R$ 100,00</td></tr>
+
+        <tr><td colspan="4"><strong>até 18/12 · 2ª parcela do 13º, ~R$ 970</strong></td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-4b" aria-label="pago"></td><td>PicPay: mais uma parte. O resto (~R$ 140 com juros) fica para janeiro</td><td>—</td><td class="r num">~R$ 120,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-9b" aria-label="pago"></td><td>Geru (3ª de 4). 3 dias de atraso custam centavos</td><td>15/12</td><td class="r num">R$ 102,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-7" aria-label="pago"></td><td>Cartões renegociados (Nubank, Caixa, Amazon)</td><td>depois de 20/12</td><td class="r num">até R$ 250,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-8" aria-label="pago"></td><td>Internet TIM de dezembro</td><td>confirmar</td><td class="r num">R$ 179,99</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-9" aria-label="pago"></td><td>Empréstimo Pan</td><td>25/12</td><td class="r num">R$ 167,63</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="s4-10" aria-label="pago"></td><td>Dia a dia do mês (farmácia, higiene, imprevistos)</td><td>—</td><td class="r num">R$ 150,00</td></tr>
+        <tr class="total"><td></td><td colspan="2">Disponível em dezembro (com os R$ 29 guardados)</td><td class="r num">R$ 2.127</td></tr>
+        <tr class="total"><td></td><td colspan="2">Sai em dezembro</td><td class="r num">R$ 2.126</td></tr>
+        <tr class="sub"><td></td><td colspan="2">Sobra</td><td class="r num">~R$ 1</td></tr>
+      </tbody>
+    </table></div>
+    <p><small class="muted">A 2ª parcela do 13º costuma vir menor que a 1ª, porque nela sai o INSS do 13º inteiro (~R$ 184). Por isso contei R$ 970, não R$ 1.155. Depois de quitar PicPay, Itaú e Revolut, peça o cancelamento desses três cartões.</small></p>
+  </div>
+</section>
+
+<h2>2027: o orçamento do mês</h2>
+<p class="muted">Considerando a renegociação dos cartões em R$ 250 e a troca da internet por um plano de ~R$ 100 a partir de fevereiro.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Item</th><th class="r">Jan</th><th class="r">Fev</th><th class="r">Mar–Ago</th><th class="r">A partir de nov/27</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Renda</strong></td><td class="r num">1.128</td><td class="r num">1.128</td><td class="r num">1.128</td><td class="r num">1.128</td></tr>
+    <tr><td>99Pay</td><td class="r num">401,12</td><td class="r num">401,12</td><td class="r num">401,12</td><td class="r num">—</td></tr>
+    <tr><td>Cartões renegociados (meta)</td><td class="r num">250,00</td><td class="r num">250,00</td><td class="r num">250,00</td><td class="r num">250,00</td></tr>
+    <tr><td>Acordo Serasa (até jun/2030)</td><td class="r num">74,27</td><td class="r num">74,27</td><td class="r num">74,27</td><td class="r num">74,27</td></tr>
+    <tr><td>Empréstimo Pan</td><td class="r num">167,63</td><td class="r num">167,63</td><td class="r num">167,63</td><td class="r num">—</td></tr>
+    <tr><td>Internet</td><td class="r num">179,99</td><td class="r num">99,90</td><td class="r num">99,90</td><td class="r num">99,90</td></tr>
+    <tr><td>Dia a dia</td><td class="r num">120,00</td><td class="r num">120,00</td><td class="r num">120,00</td><td class="r num">120,00</td></tr>
+    <tr><td>Nubank PJ (parcelas antigas)</td><td class="r num">90,18</td><td class="r num">25,90</td><td class="r num">—</td><td class="r num">—</td></tr>
+    <tr><td>Mercado Pago</td><td class="r num">66,06</td><td class="r num">66,06</td><td class="r num">66,06</td><td class="r num">—</td></tr>
+    <tr><td>Geru (última parcela)</td><td class="r num">102,00</td><td class="r num">—</td><td class="r num">—</td><td class="r num">—</td></tr>
+    <tr><td>Celular TIM</td><td class="r num">58,99</td><td class="r num">58,99</td><td class="r num">58,99</td><td class="r num">58,99</td></tr>
+    <tr><td>Disney+ e Prime Video (sua parte)</td><td class="r num">24,95</td><td class="r num">24,95</td><td class="r num">24,95</td><td class="r num">24,95</td></tr>
+    <tr class="total"><td>Saldo do mês</td><td class="r num neg">−407</td><td class="r num neg">−161</td><td class="r num neg">−135</td><td class="r num pos">+500</td></tr>
+    <tr class="sub"><td>Saldo do mês com o Pan quitado</td><td class="r num">—</td><td class="r num">—</td><td class="r num pos">+33</td><td class="r num pos">+500</td></tr>
+  </tbody>
+</table></div>
+<p>Dezembro fecha no zero. Em janeiro e fevereiro faltam ~R$ 710, contando a última parcela da Geru e o resto do PicPay (~R$ 140). As horas extras de janeiro (~R$ 415) cobrem parte disso; ainda faltam ~R$ 295. De março a agosto faltam ~R$ 135 por mês, <strong>a não ser que o Pan seja quitado</strong>. Com o Pan quitado, o mês fecha no azul (~R$ 33).</p>
+
+<div class="note good">
+  <p><strong>Quando entrar dinheiro a mais (horas extras de janeiro, freela):</strong> ele não fica livre para gastar. Use nesta ordem:</p>
+  <ol class="rules">
+    <li>Cobrir o que falta em janeiro e fevereiro (~R$ 710, já contando o resto do PicPay), para nenhuma conta atrasar.</li>
+    <li>Juntar para quitar o Pan (~R$ 730 no fim de fevereiro). Peça o valor exato no app antes de pagar.</li>
+    <li>Se ainda sobrar, reserva para imprevistos.</li>
+  </ol>
+  <p><strong>Para estimar antes de cair:</strong> seu salário por hora é R$ 10,50 (R$ 2.310 ÷ 220 h). Cada hora extra a 100% (domingo ou feriado) vale R$ 21 bruto, ou ~R$ 23 líquido já com o reflexo no DSR e o INSS. Cada hora a 50% vale R$ 15,75 bruto, ou ~R$ 17 líquido.</p>
+  <p><strong>Seu banco de horas hoje (24h09 em dias normais):</strong> 24,15 h × R$ 15,75 = R$ 380 bruto. Com o reflexo no DSR e o INSS, ficam uns <strong>R$ 415 a R$ 430 líquido</strong>, o que cobre quase tudo o que falta em janeiro e fevereiro. O valor sobe se você fizer mais horas e cai se tirar folga com elas.</p>
+  <p>As horas extras não entraram nas contas desta página: tudo o que vier é a mais.</p>
+</div>
+
+<h2>Como fechar a conta</h2>
+<div class="lever"><div class="n">1</div><div><strong>Renda extra de ~R$ 1.440 até fevereiro.</strong> Freelas de design pelo seu MEI, ou vender algo parado. As horas extras de janeiro já contam para essa meta: pelo banco de horas atual (~R$ 415), faltariam uns R$ 1.025. Primeiro, cobrir o que falta em janeiro e fevereiro (~R$ 710). Depois, quitar o empréstimo Pan: ~R$ 730 no fim de fevereiro (antes disso o valor é maior, até ~R$ 845 em dezembro). O Pan cobra 13,5% ao mês. Quitar em fevereiro evita ~R$ 440 de juros e libera R$ 167,63 por mês até setembro. Peça o valor de quitação no app do Pan: por lei, quitar antes desconta os juros.</div></div>
+<div class="lever"><div class="n">2</div><div><strong>Internet mais barata.</strong> De R$ 179,99 para um plano de ~R$ 100 economiza ~R$ 80 por mês. Vale perguntar à TIM por um combo com o celular.</div></div>
+<div class="lever"><div class="n">3</div><div><strong>Portabilidade dos consignados.</strong> Os seus custam ~5% ao mês (Nubank 4,95%, 21 Bank 4,98%). Pela Carteira de Trabalho Digital dá para receber propostas de outros bancos. Com uma taxa menor, o desconto no salário cai e o líquido sobe. Não aceite “troco” (dinheiro extra) na portabilidade.</div></div>
+<div class="lever"><div class="n">4</div><div><strong>Se não der: Lei do Superendividamento (Lei 14.181/2021).</strong> Procure a Defensoria Pública da Bahia ou o Procon-BA e diga que está em situação de superendividamento. Eles chamam todos os credores juntos para montar um plano de pagamento que preserva o mínimo para você viver. É gratuito.</div></div>
+
+<div class="note info">
+  <p><strong>Duas coisas que jogam a seu favor:</strong></p>
+  <p>• No <strong>Registrato</strong> (Banco Central, entrando com a conta gov.br) você vê todas as dívidas no seu CPF, para conferir se não falta nenhuma.</p>
+  <p>• Os juros do cartão têm teto: no rotativo e no parcelamento de fatura, juros e encargos não podem passar do valor original da dívida (Lei 14.690/2023). O aviso está nas suas próprias faturas.</p>
+</div>
+
+<h2>Todas as dívidas, da mais cara para a mais barata</h2>
+<div class="table-wrap"><table class="stack nochk" data-cols="name,owed,rate,why">
+  <thead><tr><th>Dívida</th><th>Quanto</th><th class="r">Juros ao mês</th><th>Plano</th></tr></thead>
+  <tbody>
+    <tr><td>PicPay (cartão)</td><td class="num">R$ 299,73</td><td class="r num">18,70%</td><td class="why">quitar em 15/12</td></tr>
+    <tr><td>Nubank (cartão)</td><td class="num">R$ 2.156,83</td><td class="r num">16,1–16,3%</td><td class="why">mínimo agora · melhor oferta até aqui: 18 × R$ 235,48</td></tr>
+    <tr><td>Revolut (cartão)</td><td class="num">R$ 48,55</td><td class="r num">14,99%</td><td class="why">quitar em 16/12</td></tr>
+    <tr><td>Itaú (cartão)</td><td class="num">R$ 121,65</td><td class="r num">14,00%</td><td class="why">quitar em 15/12</td></tr>
+    <tr><td>Empréstimo Pan</td><td class="num">12 × R$ 167,63 (a de out/26 atrasada)</td><td class="r num">13,50%</td><td class="why">pagar out + nov até 30/11 · quitar com renda extra</td></tr>
+    <tr><td>Caixa (cartão)</td><td class="num">R$ 1.625,26 + R$ 886,24 em parcelas</td><td class="r num">13,10% / 9,30%</td><td class="why">11x agora · renegociar</td></tr>
+    <tr><td>Amazon / Bradescard (cartão)</td><td class="num">R$ 944,33 + R$ 827,58 em parcelas</td><td class="r num">11,20% / 10,70%</td><td class="why">mínimo agora · renegociar</td></tr>
+    <tr><td>Nubank PJ (cartão)</td><td class="num">R$ 206,26 em parcelas + TIM</td><td class="r num">16,1% se atrasar</td><td class="why">pagar o total todo mês · não usar</td></tr>
+    <tr><td>99Pay</td><td class="num">10 × R$ 401,12 (até ago/27)</td><td class="r num">não informado</td><td class="why">em dia · pedir valor de quitação</td></tr>
+    <tr><td>Geru</td><td class="num">3 × R$ 102,00 (a 2ª venceu 15/11; última em 15/01/27)</td><td class="r num">não informado</td><td class="why">pagar em 30/11, 15/12 e 15/01</td></tr>
+    <tr><td>Acordo Serasa</td><td class="num">44 × R$ 74,27 (até jun/2030; a 5ª venceu 14/11)</td><td class="r num">não informado</td><td class="why">pagar em 16/11 · nunca atrasar (o acordo pode cair)</td></tr>
+    <tr><td>Mercado Pago</td><td class="num">R$ 68,43 + 11 × R$ 66,06</td><td class="r num">não informado</td><td class="why">pagar a atrasada · manter em dia</td></tr>
+    <tr><td>Fatura PAN</td><td class="num">R$ 151,75 (venceu 12/11)</td><td class="r num">não vi (PDF com senha)</td><td class="why">pagar e não usar mais</td></tr>
+    <tr><td>Consignado Nubank (salário)</td><td class="num">R$ 638,29 até jun/2030</td><td class="r num">4,95%</td><td class="why">automático · ver portabilidade</td></tr>
+    <tr><td>Consignado 21 Bank (salário)</td><td class="num">R$ 141,82 até nov/2030</td><td class="r num">4,98%</td><td class="why">automático · ver portabilidade</td></tr>
+  </tbody>
+</table></div>
+<p><small class="muted">Nos cartões com duas taxas, a primeira é a do rotativo e a segunda a do parcelamento.</small></p>
+
+<h2>Para conferir</h2>
+<ul class="checks">
+  <li><input type="checkbox" data-k="c-1" aria-label="conferido"><span><strong>Datas do 13º</strong> com o RH: 1ª parcela até 30/11; 2ª até 18/12 (~R$ 970).</span></li>
+  <li><input type="checkbox" data-k="c-2" aria-label="conferido"><span><strong>Fatura PAN:</strong> tem compras parceladas que vão cair nos próximos meses? Se tiver, elas entram em dezembro.</span></li>
+  <li><input type="checkbox" data-k="c-3" aria-label="conferido"><span><strong>Internet TIM:</strong> qual o dia de vencimento?</span></li>
+  <li><input type="checkbox" data-k="c-4" aria-label="conferido"><span><strong>Salário de novembro:</strong> deve cair só ~R$ 216 no começo de dezembro, porque a partir dele entra o desconto do 21 Bank (R$ 141,82), além do Nubank (R$ 638,29).</span></li>
+  <li><input type="checkbox" data-k="c-5" aria-label="conferido"><span><strong>MEI:</strong> se o DAS mensal estiver ativo, é mais uma conta (~R$ 80 a R$ 90 por mês) que não entrou neste plano.</span></li>
+</ul>
+
+<footer>Montado a partir dos documentos da pasta Plano_Gastos. Os valores de dezembro em diante são estimativas: confira sempre no app antes de pagar. As marcações desta página ficam salvas só neste navegador.</footer>
+
+</main>
+<script>
+(function(){
+  document.querySelectorAll('table.stack').forEach(function(t){
+    var cols=(t.getAttribute('data-cols')||'').split(',');
+    t.querySelectorAll('tbody tr').forEach(function(tr){
+      var tds=tr.children;
+      if(tds.length===1){ tr.classList.add('grp'); return; }
+      if(tr.classList.contains('total')||tr.classList.contains('sub')){
+        var labeled=false;
+        Array.prototype.forEach.call(tds,function(td){
+          if(!td.textContent.trim()){ td.classList.add('is-empty'); return; }
+          if(td.classList.contains('r')) td.classList.add('c-amt');
+          else if(td.classList.contains('why')) td.classList.add('c-why');
+          else if(!labeled){ td.classList.add('c-lab'); labeled=true; }
+        });
+        return;
+      }
+      Array.prototype.forEach.call(tds,function(td,i){
+        var c=cols[i]; if(c){ td.classList.add('c-'+c); }
+        if(c!=='chk' && td.textContent.trim()==='—'){ td.classList.add('is-empty'); }
+      });
+    });
+  });
+})();
+(function(){
+  var KEY='plano-gastos-2026';
+  var state={};
+  try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ state={}; }
+  function mark(cb){
+    var row=cb.closest('tr')||cb.closest('li');
+    if(row){ row.classList.toggle('done', cb.checked); }
+  }
+  document.querySelectorAll('input[type=checkbox][data-k]').forEach(function(cb){
+    if(state[cb.dataset.k]){ cb.checked=true; }
+    mark(cb);
+    cb.addEventListener('change',function(){
+      state[cb.dataset.k]=cb.checked;
+      mark(cb);
+      try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+    });
+  });
+})();
+</script>
+</body>
+</html>
