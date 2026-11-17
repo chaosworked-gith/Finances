@@ -67,6 +67,7 @@ td.r,th.r{text-align:right}
 tr.total td{font-weight:650;border-bottom:none}
 tr.sub td{color:var(--muted);border-bottom:none;padding-top:0}
 td.why{color:var(--muted);font-size:.88rem}
+table.stack td.c-owed{white-space:normal}
 tr.done td:not(.chk){text-decoration:line-through;color:var(--muted)}
 td.chk{width:34px}
 input[type=checkbox]{width:18px;height:18px;accent-color:var(--good);cursor:pointer;margin:2px 0 0}
@@ -117,222 +118,219 @@ footer{margin-top:3rem;color:var(--muted);font-size:.85rem;border-top:1px solid 
 <body>
 <main>
 
-<p class="eyebrow">Plano de gastos · montado em 14/11/2026</p>
+<p class="eyebrow">Plano de gastos · atualizado em 16/11/2026</p>
 <h1>Como atravessar novembro e dezembro, e virar o jogo em 2027</h1>
-<p class="lead">Juntei seus contracheques, os 3 contratos de empréstimo, as faturas dos cartões e os prints do 99Pay e do Mercado Pago com o que você me contou (ajuda de R$ 300, internet, celular, saldo e 13º). Aqui está o que pagar, quando e com qual dinheiro. Marque cada item conforme for pagando.</p>
+<p class="lead">Juntei contracheques, contratos, faturas e prints com o que você me contou, inclusive as ofertas de parcelamento que os bancos já fizeram. Aqui está o que pagar, quando e com qual dinheiro. Marque cada item conforme for pagando.</p>
 
 <h2>A situação em números</h2>
 <div class="tiles">
-  <div class="tile"><div class="label">Renda por mês (a partir de dezembro)</div><div class="value">R$ 1.128</div><div class="sub">adiantamento ~R$ 612 + saldo do salário ~R$ 216 + ajuda R$ 300</div></div>
-  <div class="tile"><div class="label">Parcelas fixas fora da folha</div><div class="value">R$ 948/mês</div><div class="sub">99Pay 401 · Internet 180 · Pan 168 · Serasa 74 · Mercado Pago 66 · Celular 59</div></div>
-  <div class="tile"><div class="label">Dívida nos cartões</div><div class="value">R$ 7.352</div><div class="sub">faturas de novembro R$ 5.348 + compras parceladas R$ 2.004</div></div>
+  <div class="tile"><div class="label">Renda por mês</div><div class="value">R$ 1.128</div><div class="sub">adiantamento ~R$ 612 + saldo do salário ~R$ 216 + ajuda R$ 300</div></div>
+  <div class="tile"><div class="label">Compromissos por mês (fev a ago/27)</div><div class="value">R$ 1.690 a 1.940</div><div class="sub">cartões parcelados, empréstimos e contas da casa</div></div>
+  <div class="tile"><div class="label">Quanto falta até setembro/27</div><div class="value">~R$ 5.600</div><div class="sub">somando o que falta em cada mês, de dezembro a setembro</div></div>
   <div class="tile"><div class="label">Consignados descontados no salário</div><div class="value">R$ 780/mês</div><div class="sub">Nubank R$ 638,29 até jun/2030 + 21 Bank R$ 141,82 até nov/2030</div></div>
 </div>
 
 <div class="note bad">
-  <p><strong>Do jeito que está, a conta não fecha.</strong> Depois das parcelas fixas, sobram uns R$ 180 por mês para os cartões e o dia a dia. Só os cartões, parcelados pelos bancos, pediriam mais de R$ 1.000 por mês. Não é um problema só de controle neste mês: tem mais parcela do que renda.</p>
-  <p>O plano tem três partes: <strong>parar de criar dívida</strong>, <strong>usar o 13º no que está vencendo e no que cobra mais juros</strong> e <strong>renegociar o resto para caber na renda</strong>.</p>
+  <p><strong>Com as parcelas que os bancos ofereceram, a conta não fecha até setembro de 2027.</strong> Faltam de R$ 560 a R$ 815 por mês. Nenhum corte de gastos cobre isso: não é falta de controle, é parcela demais para a renda.</p>
+  <p>Isso tem nome, <strong>superendividamento</strong>, e existe uma lei para isso (Lei 14.181/2021). O passo mais importante agora é <strong>procurar a Defensoria Pública da Bahia ou o Procon-BA esta semana</strong>. Enquanto isso, o plano abaixo mantém em dia o que dá para manter.</p>
 </div>
 
 <div class="note good">
-  <p><strong>A virada tem data.</strong> O 99Pay termina em agosto de 2027, o Pan em setembro e o Mercado Pago em outubro. A partir daí sobram cerca de <strong>R$ 500 por mês</strong> (o acordo da Serasa continua até 2030, mas já está nessa conta). O objetivo é chegar lá sem atrasar nada e sem dívida nova.</p>
+  <p><strong>A virada tem data.</strong> Em setembro e outubro de 2027 terminam 99Pay, Pan, Mercado Pago e o parcelamento da Caixa. A partir de outubro o mês passa a sobrar, e de dezembro de 2027 em diante sobram uns <strong>R$ 500 por mês</strong>.</p>
 </div>
 
 <div class="note info">
-  <p><strong>De onde veio a bola de neve:</strong> em outubro, cerca de <strong>R$ 1.700</strong> saíram dos cartões para o 99Pay (Pix, boletos e recarga no crédito). Isso é pagar uma dívida com outra, e cada volta cobra juros e tarifa. Nas faturas também aparecem muitas corridas de Uber, lanches e delivery, e várias assinaturas. Por cima disso vieram dois empréstimos novos (Pan em setembro e 21 Bank em outubro).</p>
+  <p><strong>De onde veio a bola de neve:</strong> em outubro, cerca de <strong>R$ 1.700</strong> saíram dos cartões para o 99Pay (Pix, boletos e recarga no crédito). Isso é pagar uma dívida com outra, e cada volta cobra juros e tarifa. Nas faturas também aparecem muitas corridas de Uber, lanches, delivery e assinaturas, além de empréstimos novos (Pan em setembro, 21 Bank em outubro).</p>
 </div>
 
 <h2>Regras a partir de hoje</h2>
 <ol class="rules">
   <li><strong>Nenhum cartão de crédito até a virada</strong>, inclusive o Nubank PJ. Apague os cartões salvos no Uber, 99, iFood, Amazon e Google Play.</li>
   <li><strong>Nada de Pix, boleto ou recarga “no crédito”</strong> pelo 99Pay, PicPay ou Nubank.</li>
-  <li><strong>Nenhum empréstimo novo.</strong> O do 21 Bank (você recebeu R$ 2.354,74) vai custar R$ 6.807,36 no total. O consignado Nubank (R$ 10.499,49) vai custar R$ 30.637,93.</li>
-  <li><strong>Cancele as assinaturas só suas</strong>: Google One (R$ 24,99), YouTube Premium (R$ 26,90), Uber One, as duas cobranças do Google no Revolut (R$ 11,99 e R$ 8,99) e o app “Gossip” do Google Play.</li>
-  <li><strong>Disney+ e Prime Video (divididos em 4): manter, mas tirar do seu cartão.</strong> Hoje o valor cheio cai todo mês no seu cartão Amazon: Disney+ R$ 69,90 + Prime R$ 19,90 + “sem anúncios” R$ 10,00 = R$ 99,80, num cartão que cobra 11,2% ao mês no rotativo. Peça para uma das outras três pessoas colocar as assinaturas no cartão dela e mande sua parte (~R$ 25) por Pix todo mês. Quando o cartão Amazon for renegociado, ele costuma ser bloqueado e as assinaturas parariam de qualquer jeito.</li>
-  <li><strong>Transporte só com o VT, comida com o VR e a cesta.</strong> Uber e delivery ficam para depois da virada.</li>
+  <li><strong>Nenhum empréstimo novo.</strong> O do 21 Bank (você recebeu R$ 2.354,74) vai custar R$ 6.807,36. O consignado Nubank (R$ 10.499,49) vai custar R$ 30.637,93.</li>
+  <li><strong>Cancele as assinaturas só suas</strong>: Google One (R$ 24,99), YouTube Premium (R$ 26,90), Uber One, as duas do Google no Revolut (R$ 11,99 e R$ 8,99) e o app “Gossip”.</li>
+  <li><strong>Disney+ e Prime Video (divididos em 4): tirar do seu cartão.</strong> Hoje o valor cheio (R$ 99,80) cai no cartão Amazon. Peça para outra pessoa do grupo assumir no cartão dela e mande sua parte (~R$ 25) por Pix.</li>
+  <li><strong>Transporte com o VT, comida com o VR e a cesta.</strong> Uber e delivery ficam para depois da virada.</li>
 </ol>
 
 <h2>Passo a passo</h2>
 
 <section class="step">
-  <div class="step-head"><span class="badge">14–15/11</span><div><h3>Hoje e amanhã</h3><div class="src">Sem gastar nada</div></div></div>
+  <div class="step-head"><span class="badge">16/11</span><div><h3>Hoje: pagar o que vence e o que já atrasou</h3><div class="src">Dinheiro: saldo de <span class="num">R$ 876,65</span></div></div></div>
+  <div class="step-body">
+    <div class="table-wrap"><table class="stack" data-cols="chk,name,due,amt,why">
+      <thead><tr><th></th><th>Conta</th><th>Vence</th><th class="r">Pagar</th><th>Por quê</th></tr></thead>
+      <tbody>
+        <tr><td class="chk"><input type="checkbox" data-k="h-nu" aria-label="feito"></td><td>Nubank (cartão)</td><td>16/11</td><td class="r num">R$ 0,00</td><td class="why">Já parcelado em R$ 243,12 por mês, sem entrada.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-cx" aria-label="pago"></td><td>Caixa (cartão)</td><td>16/11</td><td class="r num">R$ 247,45</td><td class="why">O app mostra mínimo de R$ 725,95: não é esse. Pague exatamente R$ 247,45, com os centavos: é a 1ª parcela do parcelamento em 11x (9,30% ao mês). Se o app oferecer mais parcelas, escolha a de menor valor.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-amz" aria-label="pago"></td><td>Amazon (cartão)</td><td>15/11*</td><td class="r num">R$ 95,00</td><td class="why">Mínimo</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-ser" aria-label="pago"></td><td>Acordo Serasa (5ª de 48)</td><td>14/11</td><td class="r num">R$ 74,27</td><td class="why">Venceu sábado. Acordo atrasado pode ser cancelado e a dívida volta inteira.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-geru" aria-label="pago"></td><td>Geru (2ª de 4)</td><td>15/11*</td><td class="r num">R$ 102,00</td><td class="why">Pagando hoje, sem multa.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-pan" aria-label="pago"></td><td>Empréstimo Pan (parcela de outubro)</td><td>25/10</td><td class="r num">R$ 167,63</td><td class="why">Atrasada há 22 dias. Pague pelo boleto atualizado, que vem com uns R$ 21 de juros e multa.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-mp" aria-label="pago"></td><td>Mercado Pago (1ª de 12)</td><td>09/11</td><td class="r num">R$ 68,43</td><td class="why">Atrasada. + uns R$ 3</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-rev" aria-label="pago"></td><td>Revolut (cartão)</td><td>16/11</td><td class="r num">R$ 30,72</td><td class="why">Mínimo</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-itau" aria-label="pago"></td><td>Itaú (cartão)</td><td>15/11*</td><td class="r num">R$ 16,22</td><td class="why">Mínimo</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="h-pic" aria-label="pago"></td><td>PicPay (cartão)</td><td>15/11*</td><td class="r num">R$ 14,99</td><td class="why">Mínimo</td></tr>
+        <tr class="total"><td></td><td colspan="2">Total</td><td class="r num">R$ 816,71</td><td class="why">+ uns R$ 24 de juros dos atrasos</td></tr>
+        <tr class="sub"><td></td><td colspan="2">Sobra</td><td class="r num">~R$ 36</td><td class="why">Reserva até o 13º</td></tr>
+      </tbody>
+    </table></div>
+    <p><small class="muted">* 15/11 caiu num domingo e feriado: pagando hoje não há multa.</small></p>
+    <div class="note warn"><p><strong>Pague logo cedo:</strong> pelo contrato, o Pan pode tentar o débito automático de novo quando houver saldo. Se ele levar parte do dinheiro antes, as outras contas não fecham.</p><p><strong>Fica para o dia 30:</strong> 99Pay (venceu hoje) e a fatura PAN. Atrasar uma parcela de empréstimo cobra juros só sobre a parcela; por isso os cartões e o acordo da Serasa vêm primeiro.</p></div>
+  </div>
+</section>
+
+<section class="step">
+  <div class="step-head"><span class="badge">esta semana</span><div><h3>Pedir ajuda e arrumar a casa</h3><div class="src">Sem gastar nada</div></div></div>
   <div class="step-body">
     <ul class="checks">
-      <li><input type="checkbox" data-k="s0-1" aria-label="feito"><span>Cancelar as assinaturas só suas (lista acima)</span></li>
-      <li><input type="checkbox" data-k="s0-1b" aria-label="feito"><span>Combinar com o grupo quem passa a pagar Disney+ e Prime Video no próprio cartão</span></li>
-      <li><input type="checkbox" data-k="s0-5" aria-label="feito"><span>Nubank: já apareceu a opção de 18x de R$ 235,48. Antes de aceitar, pergunte se há prazo maior (24x ou mais), se tem entrada e quando vence a 1ª parcela (veja “Renegociar”)</span></li>
-      <li><input type="checkbox" data-k="s0-2" aria-label="feito"><span>Apagar os cartões salvos nos apps (Uber, 99, iFood, Amazon, Google Play)</span></li>
-      <li><input type="checkbox" data-k="s0-3" aria-label="feito"><span>Perguntar ao RH a data exata da 1ª parcela do 13º. Se cair antes do dia 30, os atrasos do passo 2 ficam menores</span></li>
-      <li><input type="checkbox" data-k="s0-4b" aria-label="feito"><span>Avisar o Pan (app ou chat) que você paga as parcelas de outubro e novembro até 30/11 e pedir o boleto atualizado das duas</span></li>
+      <li><input type="checkbox" data-k="w-def" aria-label="feito"><span><strong>Marcar atendimento na Defensoria Pública da Bahia ou no Procon-BA</strong> e dizer que está em situação de superendividamento. Leve contracheques, contratos, faturas, os prints (tudo da pasta Plano_Gastos), documento com foto, comprovante de residência e esta página. É gratuito.</span></li>
+      <li><input type="checkbox" data-k="w-nu" aria-label="feito"><span>Conferir no app do Nubank: quantas parcelas são de R$ 243,12 e quando vence a 1ª</span></li>
+      <li><input type="checkbox" data-k="w-rh" aria-label="feito"><span>Perguntar ao RH as datas do 13º e se a 2ª parcela pode cair até 14/12, antes das faturas de 15 e 16/12</span></li>
+      <li><input type="checkbox" data-k="w-ass" aria-label="feito"><span>Cancelar as assinaturas só suas</span></li>
+      <li><input type="checkbox" data-k="w-str" aria-label="feito"><span>Combinar com o grupo quem passa a pagar Disney+ e Prime Video no próprio cartão</span></li>
+      <li><input type="checkbox" data-k="w-apps" aria-label="feito"><span>Apagar os cartões salvos nos apps (Uber, 99, iFood, Amazon, Google Play)</span></li>
     </ul>
   </div>
 </section>
 
 <section class="step">
-  <div class="step-head"><span class="badge">16/11</span><div><h3>Segunda-feira: pagar os cartões</h3><div class="src">Dinheiro: saldo de <span class="num">R$ 876,65</span></div></div></div>
-  <div class="step-body">
-    <div class="table-wrap"><table class="stack" data-cols="chk,name,due,amt,why">
-      <thead><tr><th></th><th>Conta</th><th>Vence</th><th class="r">Pagar</th><th>Por quê</th></tr></thead>
-      <tbody>
-        <tr><td class="chk"><input type="checkbox" data-k="s1-1" aria-label="pago"></td><td>Nubank (cartão)</td><td>16/11</td><td class="r num">R$ 390,69</td><td class="why">Mínimo, a não ser que o acordo de 18x de R$ 235,48 dispense a entrada. Não escolha o 8x de R$ 408,86.</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s1-2" aria-label="pago"></td><td>Caixa (cartão)</td><td>16/11</td><td class="r num">R$ 247,45</td><td class="why">Valor exato da 1ª parcela do parcelamento em 11x (9,30% ao mês, em vez do rotativo de 13,10%). Pague os centavos exatos.</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s1-3" aria-label="pago"></td><td>Amazon (cartão)</td><td>15/11*</td><td class="r num">R$ 95,00</td><td class="why">Mínimo</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s1-7" aria-label="pago"></td><td>Acordo Serasa (5ª de 48)</td><td>14/11</td><td class="r num">R$ 74,27</td><td class="why">Venceu ontem. Acordo atrasado pode ser cancelado e a dívida volta inteira, com o nome negativado de novo. Não deixe passar de segunda.</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s1-4" aria-label="pago"></td><td>Revolut (cartão)</td><td>16/11</td><td class="r num">R$ 30,72</td><td class="why">Mínimo</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s1-5" aria-label="pago"></td><td>Itaú (cartão)</td><td>15/11*</td><td class="r num">R$ 16,22</td><td class="why">Mínimo</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s1-6" aria-label="pago"></td><td>PicPay (cartão)</td><td>15/11*</td><td class="r num">R$ 14,99</td><td class="why">Mínimo</td></tr>
-        <tr class="total"><td></td><td colspan="2">Total</td><td class="r num">R$ 869,34</td><td></td></tr>
-        <tr class="sub"><td></td><td colspan="2">Sobra</td><td class="r num">R$ 7,31</td><td class="why">Reserva até o 13º. O que não usar vai para dezembro.</td></tr>
-      </tbody>
-    </table></div>
-    <p><small class="muted">* 15/11 cai num domingo e é feriado. Pagando na segunda (16/11) não há multa.</small></p>
-    <div class="note warn"><p><strong>Por que os cartões vêm primeiro:</strong> atrasar um cartão gera multa e juros sobre a fatura inteira (até 17% ao mês no Nubank). Atrasar uma parcela de empréstimo cobra só sobre a parcela. Por isso os cartões ficam em dia agora e os empréstimos são pagos com o 13º.</p><p><strong>Se preferir uma reserva maior:</strong> deixar o mínimo do Revolut e do Itaú para o dia 30 deixa ~R$ 54 de reserva em vez de R$ 7. Custa uns R$ 6 de multa e juros e mais um atraso registrado nesses dois cartões.</p><p><strong>Geru (2ª de 4, R$ 102,00):</strong> venceu 15/11, domingo e feriado. Pagando hoje não teria multa, mas não cabe: ela vai para o 13º, no dia 30. Se o Nubank aceitar o 18x sem entrada, sobram R$ 390,69 hoje: aí pague a Geru hoje mesmo.</p><p><strong>Pague logo cedo:</strong> pelo contrato, o Pan pode tentar o débito automático de novo quando houver saldo. Se ele levar parte do dinheiro antes, os mínimos dos cartões não fecham.</p></div>
-  </div>
-</section>
-
-<section class="step">
-  <div class="step-head"><span class="badge">até 30/11</span><div><h3>Quando cair a 1ª parcela do 13º</h3><div class="src">Dinheiro: ~<span class="num">R$ 1.155</span>. Pague nesta ordem</div></div></div>
+  <div class="step-head"><span class="badge">até 30/11</span><div><h3>Quando cair a 1ª parcela do 13º</h3><div class="src">Dinheiro: ~<span class="num">R$ 1.155</span> + a reserva. Pague nesta ordem</div></div></div>
   <div class="step-body">
     <div class="table-wrap"><table class="stack" data-cols="chk,name,due,amt,why">
       <thead><tr><th></th><th>Conta</th><th>Vence</th><th class="r">Pagar</th><th>Observação</th></tr></thead>
       <tbody>
-        <tr><td class="chk"><input type="checkbox" data-k="s2-1" aria-label="pago"></td><td>99Pay</td><td>16/11</td><td class="r num">R$ 401,12</td><td class="why">+ multa/juros do atraso</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s2-2" aria-label="pago"></td><td>Empréstimo Pan: 2 parcelas</td><td>25/10 e 25/11</td><td class="r num">R$ 335,26</td><td class="why">A de outubro não foi debitada e já está atrasada. Pague as duas juntas pelo boleto atualizado.</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s2-3" aria-label="pago"></td><td>Fatura PAN</td><td>12/11</td><td class="r num">R$ 151,75</td><td class="why">Já está atrasada. A multa e os juros do atraso vêm na fatura de dezembro.</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s2-4" aria-label="pago"></td><td>Mercado Pago</td><td>09/11</td><td class="r num">R$ 68,43</td><td class="why">Já está atrasada. + multa/juros</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s2-8" aria-label="pago"></td><td>Geru (2ª de 4)</td><td>15/11</td><td class="r num">R$ 102,00</td><td class="why">Já atrasada. + multa/juros</td></tr>
-        <tr class="total"><td></td><td colspan="2">Total</td><td class="r num">R$ 1.058,56</td><td class="why">+ cerca de R$ 75 de multa e juros dos atrasos</td></tr>
-        <tr class="sub"><td></td><td colspan="2">Sobra</td><td class="r num">~R$ 29</td><td class="why">Guarde para o começo de dezembro (contando que a reserva de R$ 7,31 não foi usada)</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="n-99" aria-label="pago"></td><td>99Pay</td><td>16/11</td><td class="r num">R$ 401,12</td><td class="why">+ multa/juros do atraso</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="n-pan" aria-label="pago"></td><td>Empréstimo Pan (parcela de novembro)</td><td>25/11</td><td class="r num">R$ 167,63</td><td class="why">Se o débito automático não passar, pague pelo app.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="n-pan2" aria-label="pago"></td><td>Fatura PAN</td><td>12/11</td><td class="r num">R$ 151,75</td><td class="why">Atrasada. Os juros vêm na fatura de dezembro.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="n-pic" aria-label="pago"></td><td>PicPay: quitar tudo</td><td>—</td><td class="r num">~R$ 310,00</td><td class="why">Pague o saldo inteiro pelo app. É o juro mais caro (18,7% ao mês). Depois peça o cancelamento do cartão.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="n-rev" aria-label="pago"></td><td>Revolut: quitar tudo</td><td>—</td><td class="r num">~R$ 19,00</td><td class="why">Depois peça o cancelamento.</td></tr>
+        <tr class="total"><td></td><td colspan="2">Total</td><td class="r num">~R$ 1.050</td><td class="why">+ uns R$ 32 de multa e juros</td></tr>
+        <tr class="sub"><td></td><td colspan="2">Sobra</td><td class="r num">~R$ 109</td><td class="why">Guarde para o começo de dezembro</td></tr>
       </tbody>
     </table></div>
   </div>
 </section>
 
 <section class="step">
-  <div class="step-head"><span class="badge">1–10/12</span><div><h3>Renegociar: o passo mais importante</h3><div class="src">Antes das faturas de 15 e 16/12</div></div></div>
+  <div class="step-head"><span class="badge">1–10/12</span><div><h3>Renegociar as maiores parcelas</h3><div class="src">Antes das faturas de 15 e 16/12. A Defensoria pode fazer isso com todos juntos</div></div></div>
   <div class="step-body">
-    <p>Com a sua renda, os parcelamentos que os bancos oferecem não cabem. Só o Nubank pediria de R$ 390 a R$ 480 por mês. Abra o chat ou ligue para cada um e peça <strong>renegociação da dívida</strong> (não “parcelamento de fatura”, que é mais caro).</p>
     <div class="table-wrap"><table class="stack" data-cols="chk,name,owed,why">
-      <thead><tr><th></th><th>Com quem</th><th>Quanto deve (aprox.)</th><th>Onde</th></tr></thead>
+      <thead><tr><th></th><th>Com quem</th><th>Situação</th><th>O que pedir</th></tr></thead>
       <tbody>
-        <tr><td class="chk"><input type="checkbox" data-k="s3-1" aria-label="feito"></td><td>Nubank</td><td class="num">R$ 1.766 + juros (ofertas: 8 × R$ 408,86 = R$ 3.270,88 ou 18 × R$ 235,48 = R$ 4.238,64)</td><td class="why">App do Nubank, pelo chat. Fazer antes de 16/12, quando vence a 1ª parcela do parcelamento</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s3-2" aria-label="feito"></td><td>Caixa</td><td class="num">R$ 1.378 + R$ 886 em parcelas</td><td class="why">App Cartões Caixa ou 4004 0104</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s3-3" aria-label="feito"></td><td>Amazon (Bradescard)</td><td class="num">R$ 849 + R$ 828 em parcelas</td><td class="why">App Bradesco Cartões e Bradescard</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s3-4" aria-label="feito"></td><td>99Pay</td><td class="num">10 × R$ 401,12</td><td class="why">App da 99: peça o valor para quitar antes e se existe parcela menor</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="r-amz" aria-label="feito"></td><td>Amazon (Bradescard)</td><td class="num">Fatura de dezembro deve passar de R$ 1.200 (saldo, juros, parcelas antigas e assinaturas)</td><td class="why">Renegociação com prazo longo antes de 15/12. Sem isso, o “Parcelado Fácil” entra sozinho em 12x de uns R$ 135 a R$ 155, mais as parcelas antigas.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="r-99" aria-label="feito"></td><td>99Pay</td><td class="num">9 × R$ 401,12 (dez a ago)</td><td class="why">É a maior parcela. Pedir prazo maior e o valor para quitar antes.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="r-cx" aria-label="feito"></td><td>Caixa</td><td class="num">10 × R$ 221,61 + parcelas antigas (~R$ 200/mês até fevereiro)</td><td class="why">Se o app só deu 11x, pedir renegociação com mais parcelas. App Cartões Caixa ou 4004 0104.</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="r-pan" aria-label="feito"></td><td>Pan</td><td class="num">10 × R$ 167,63 (dez a set)</td><td class="why">Pedir o valor para quitar, para usar quando entrar dinheiro extra.</td></tr>
       </tbody>
     </table></div>
     <div class="note info">
-      <p><strong>Meta:</strong> as parcelas de Nubank, Caixa e Amazon somadas em <strong>até R$ 250 por mês</strong> (cerca de R$ 85 cada), com prazo longo (até 48x, como o seu acordo da Serasa), juros abaixo de 5% ao mês e 1ª parcela <strong>depois de 20/12</strong>, quando já caiu o 13º. Prazo longo custa mais juros, mas depois da virada (set/27) você pode antecipar parcelas com desconto.</p>
-      <p><strong>O que dizer:</strong> “Minha renda está comprometida e quero renegociar a dívida do cartão. Consigo pagar no máximo R$ 85 por mês. Qual a menor taxa e o maior prazo que vocês têm?”</p>
-      <p>Se só conseguir chegar a R$ 350 no total, faltam uns R$ 100 por mês a mais. Aí o caminho da Defensoria (ver “Se não der”) passa a ser o principal.</p>
-      <p><strong>O Nubank é o mais urgente.</strong> Entre as duas ofertas, a de <strong>18 × R$ 235,48 é melhor</strong>: a parcela é R$ 173 menor e os juros ao mês também são menores (~11,4% contra ~16,2%). Ela custa uns R$ 970 a mais no total só porque dura mais, e dá para antecipar parcelas com desconto depois da virada.</p>
-      <p><strong>Antes de aceitar, confirme:</strong> (1) se existe prazo maior, 24x ou mais; (2) se tem entrada e de quanto, porque sem entrada sobram R$ 390,69 na segunda para pagar o que está atrasado; (3) quando vence a 1ª parcela, de preferência depois de 20/12; (4) o “total a pagar”: juros e encargos não podem passar do valor original da dívida.</p>
-      <p>Mesmo com 18x, a parcela fica uns R$ 150 acima do que cabe (a meta era ~R$ 85 para o Nubank). Até agosto, cada mês fica uns R$ 150 pior, e o plano passa a depender de quitar o Pan e de renda extra, ou da Defensoria.</p>
-      <p>Não aceite acordo com parcela que não cabe. Um acordo que quebra no 2º mês volta tudo para o pior juro. Se ninguém aceitar, veja “Se não der” mais abaixo.</p>
+      <p><strong>O que dizer:</strong> “Minha renda está comprometida e quero renegociar. Consigo pagar no máximo R$ X por mês. Qual o maior prazo e a menor taxa que vocês têm?”</p>
+      <p>Não aceite acordo com parcela que não cabe: um acordo que quebra no 2º mês volta tudo para o pior juro.</p>
     </div>
   </div>
 </section>
 
 <section class="step">
-  <div class="step-head"><span class="badge">dezembro</span><div><h3>Pague conforme o dinheiro entra</h3><div class="src">Entradas: saldo do salário, ajuda, adiantamento e 2ª parcela do 13º</div></div></div>
+  <div class="step-head"><span class="badge">dezembro</span><div><h3>As contas do mês</h3><div class="src">Sem renegociar nada, faltam uns R$ 484</div></div></div>
   <div class="step-body">
     <div class="table-wrap"><table class="stack" data-cols="chk,name,due,amt">
-      <thead><tr><th></th><th>Conta</th><th>Vence</th><th class="r">Pagar</th></tr></thead>
+      <thead><tr><th></th><th>Conta</th><th>Vence</th><th class="r">Valor</th></tr></thead>
       <tbody>
-        <tr><td colspan="4"><strong>Começo do mês · saldo do salário (~R$ 216, ~07/12) + ajuda (R$ 300)</strong> <span class="muted">(+ ~R$ 29 guardados)</span></td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-1" aria-label="pago"></td><td>Mercado Pago</td><td>08/12</td><td class="r num">R$ 66,06</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-2" aria-label="pago"></td><td>Nubank PJ (parcelas R$ 90,18 + TIM celular R$ 58,99)</td><td>09/12</td><td class="r num">R$ 149,17</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-2b" aria-label="pago"></td><td>Fatura PAN (só a multa e os juros do atraso de novembro)</td><td>12/12</td><td class="r num">~R$ 20,00</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-2c" aria-label="pago"></td><td>Internet TIM de novembro (atrasar uns dias custa pouco: multa de 2%)</td><td>confirmar</td><td class="r num">R$ 179,99</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-2d" aria-label="pago"></td><td>Sua parte do Disney+ e Prime Video (Pix para quem paga)</td><td>—</td><td class="r num">~R$ 25,00</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-2e" aria-label="pago"></td><td>Acordo Serasa (6ª de 48)</td><td>14/12</td><td class="r num">R$ 74,27</td></tr>
+        <tr><td colspan="4"><strong>Começo do mês</strong> <span class="muted">· dinheiro: saldo do salário (~R$ 216, ~07/12) + ajuda (R$ 300) + R$ 109 guardados</span></td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-mp" aria-label="pago"></td><td>Mercado Pago</td><td>08/12</td><td class="r num">R$ 66,06</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-pj" aria-label="pago"></td><td>Nubank PJ (parcelas R$ 90,18 + TIM celular R$ 58,99)</td><td>09/12</td><td class="r num">R$ 149,17</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-pan2" aria-label="pago"></td><td>Fatura PAN (só os juros do atraso)</td><td>12/12</td><td class="r num">~R$ 20,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-int1" aria-label="pago"></td><td>Internet TIM de novembro</td><td>confirmar</td><td class="r num">R$ 179,99</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-str" aria-label="pago"></td><td>Sua parte do Disney+ e Prime Video (Pix)</td><td>—</td><td class="r num">~R$ 25,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-ser" aria-label="pago"></td><td>Acordo Serasa (6ª)</td><td>14/12</td><td class="r num">R$ 74,27</td></tr>
 
-        <tr><td colspan="4"><strong>~15/12 · adiantamento, ~R$ 612</strong></td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-3" aria-label="pago"></td><td>99Pay (se o adiantamento cair dia 15, é só 1 dia de atraso)</td><td>14/12</td><td class="r num">R$ 401,12</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-5c" aria-label="pago"></td><td>Itaú: quitar</td><td>15/12</td><td class="r num">~R$ 120,85</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-6" aria-label="pago"></td><td>Revolut: quitar</td><td>16/12</td><td class="r num">~R$ 20,00</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-4a" aria-label="pago"></td><td>PicPay: pagar o que sobrou do adiantamento (confira se passa do mínimo da fatura)</td><td>15/12</td><td class="r num">~R$ 100,00</td></tr>
+        <tr><td colspan="4"><strong>Meio do mês</strong> <span class="muted">· dinheiro: adiantamento (~R$ 612, ~15/12) + 2ª parcela do 13º (~R$ 970, até 18/12)</span></td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-99" aria-label="pago"></td><td>99Pay</td><td>14/12</td><td class="r num">R$ 401,12</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-itau" aria-label="pago"></td><td>Itaú: quitar</td><td>15/12</td><td class="r num">~R$ 120,85</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-geru" aria-label="pago"></td><td>Geru (3ª de 4)</td><td>15/12</td><td class="r num">R$ 102,00</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-amz" aria-label="pago"></td><td>Amazon (12x estimado + parcelas antigas R$ 228,45)</td><td>15/12</td><td class="r num">~R$ 361,45</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-nu" aria-label="pago"></td><td>Nubank (1ª de R$ 243,12 + parcela antiga R$ 7,64)</td><td>16/12</td><td class="r num">R$ 250,76</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-cx" aria-label="pago"></td><td>Caixa (2ª do 11x R$ 221,61 + parcelas antigas R$ 221,57)</td><td>16/12</td><td class="r num">R$ 443,18</td></tr>
 
-        <tr><td colspan="4"><strong>até 18/12 · 2ª parcela do 13º, ~R$ 970</strong></td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-4b" aria-label="pago"></td><td>PicPay: mais uma parte. O resto (~R$ 140 com juros) fica para janeiro</td><td>—</td><td class="r num">~R$ 120,00</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-9b" aria-label="pago"></td><td>Geru (3ª de 4). 3 dias de atraso custam centavos</td><td>15/12</td><td class="r num">R$ 102,00</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-7" aria-label="pago"></td><td>Cartões renegociados (Nubank, Caixa, Amazon)</td><td>depois de 20/12</td><td class="r num">até R$ 250,00</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-8" aria-label="pago"></td><td>Internet TIM de dezembro</td><td>confirmar</td><td class="r num">R$ 179,99</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-9" aria-label="pago"></td><td>Empréstimo Pan</td><td>25/12</td><td class="r num">R$ 167,63</td></tr>
-        <tr><td class="chk"><input type="checkbox" data-k="s4-10" aria-label="pago"></td><td>Dia a dia do mês (farmácia, higiene, imprevistos)</td><td>—</td><td class="r num">R$ 150,00</td></tr>
-        <tr class="total"><td></td><td colspan="2">Disponível em dezembro (com os R$ 29 guardados)</td><td class="r num">R$ 2.127</td></tr>
-        <tr class="total"><td></td><td colspan="2">Sai em dezembro</td><td class="r num">R$ 2.126</td></tr>
-        <tr class="sub"><td></td><td colspan="2">Sobra</td><td class="r num">~R$ 1</td></tr>
+        <tr><td colspan="4"><strong>Fim do mês</strong></td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-pan" aria-label="pago"></td><td>Empréstimo Pan</td><td>25/12</td><td class="r num">R$ 167,63</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-int2" aria-label="pago"></td><td>Internet TIM de dezembro</td><td>confirmar</td><td class="r num">R$ 179,99</td></tr>
+        <tr><td class="chk"><input type="checkbox" data-k="d-dia" aria-label="pago"></td><td>Dia a dia (farmácia, higiene, imprevistos)</td><td>—</td><td class="r num">R$ 150,00</td></tr>
+        <tr class="total"><td></td><td colspan="2">Entra em dezembro (com os R$ 109 guardados)</td><td class="r num">R$ 2.207</td></tr>
+        <tr class="total"><td></td><td colspan="2">Sai em dezembro</td><td class="r num">R$ 2.691</td></tr>
+        <tr class="sub"><td></td><td colspan="2">Falta</td><td class="r num neg">~R$ 484</td></tr>
       </tbody>
     </table></div>
-    <p><small class="muted">A 2ª parcela do 13º costuma vir menor que a 1ª, porque nela sai o INSS do 13º inteiro (~R$ 184). Por isso contei R$ 970, não R$ 1.155. Depois de quitar PicPay, Itaú e Revolut, peça o cancelamento desses três cartões.</small></p>
+    <div class="note warn">
+      <p><strong>Se o dinheiro não der, esta é a ordem de prioridade:</strong></p>
+      <ol class="rules">
+        <li>Acordo da Serasa: se atrasar, o acordo cai.</li>
+        <li>Nubank e Caixa: os parcelamentos são novos, e atrasar pode desfazer o acordo e voltar a dívida para o rotativo.</li>
+        <li>Itaú e Geru: são pequenas e acabam logo.</li>
+        <li>Internet, celular e dia a dia.</li>
+        <li>O que estiver em renegociação (Amazon, 99Pay): avise o credor antes do vencimento e leve para a Defensoria.</li>
+      </ol>
+      <p>Várias contas vencem em 15 e 16/12, antes da 2ª parcela do 13º (até 18/12). Se o RH não puder adiantar, essas ficam 2 ou 3 dias atrasadas.</p>
+    </div>
   </div>
 </section>
 
-<h2>2027: o orçamento do mês</h2>
-<p class="muted">Considerando a renegociação dos cartões em R$ 250 e a troca da internet por um plano de ~R$ 100 a partir de fevereiro.</p>
+<h2>Mês a mês até a virada</h2>
+<p class="muted">Com as ofertas que os bancos fizeram: Nubank R$ 243,12 (contei 18x), Caixa 11x, Amazon 12x (estimativa) e internet de ~R$ 100 a partir de fevereiro. Os consignados já saem do salário e não entram aqui.</p>
 <div class="table-wrap"><table>
-  <thead><tr><th>Item</th><th class="r">Jan</th><th class="r">Fev</th><th class="r">Mar–Ago</th><th class="r">A partir de nov/27</th></tr></thead>
+  <thead><tr><th>Mês</th><th class="r">Entra</th><th class="r">Sai</th><th class="r">Saldo</th></tr></thead>
   <tbody>
-    <tr><td><strong>Renda</strong></td><td class="r num">1.128</td><td class="r num">1.128</td><td class="r num">1.128</td><td class="r num">1.128</td></tr>
-    <tr><td>99Pay</td><td class="r num">401,12</td><td class="r num">401,12</td><td class="r num">401,12</td><td class="r num">—</td></tr>
-    <tr><td>Cartões renegociados (meta)</td><td class="r num">250,00</td><td class="r num">250,00</td><td class="r num">250,00</td><td class="r num">250,00</td></tr>
-    <tr><td>Acordo Serasa (até jun/2030)</td><td class="r num">74,27</td><td class="r num">74,27</td><td class="r num">74,27</td><td class="r num">74,27</td></tr>
-    <tr><td>Empréstimo Pan</td><td class="r num">167,63</td><td class="r num">167,63</td><td class="r num">167,63</td><td class="r num">—</td></tr>
-    <tr><td>Internet</td><td class="r num">179,99</td><td class="r num">99,90</td><td class="r num">99,90</td><td class="r num">99,90</td></tr>
-    <tr><td>Dia a dia</td><td class="r num">120,00</td><td class="r num">120,00</td><td class="r num">120,00</td><td class="r num">120,00</td></tr>
-    <tr><td>Nubank PJ (parcelas antigas)</td><td class="r num">90,18</td><td class="r num">25,90</td><td class="r num">—</td><td class="r num">—</td></tr>
-    <tr><td>Mercado Pago</td><td class="r num">66,06</td><td class="r num">66,06</td><td class="r num">66,06</td><td class="r num">—</td></tr>
-    <tr><td>Geru (última parcela)</td><td class="r num">102,00</td><td class="r num">—</td><td class="r num">—</td><td class="r num">—</td></tr>
-    <tr><td>Celular TIM</td><td class="r num">58,99</td><td class="r num">58,99</td><td class="r num">58,99</td><td class="r num">58,99</td></tr>
-    <tr><td>Disney+ e Prime Video (sua parte)</td><td class="r num">24,95</td><td class="r num">24,95</td><td class="r num">24,95</td><td class="r num">24,95</td></tr>
-    <tr class="total"><td>Saldo do mês</td><td class="r num neg">−407</td><td class="r num neg">−161</td><td class="r num neg">−135</td><td class="r num pos">+500</td></tr>
-    <tr class="sub"><td>Saldo do mês com o Pan quitado</td><td class="r num">—</td><td class="r num">—</td><td class="r num pos">+33</td><td class="r num pos">+500</td></tr>
+    <tr><td>Dezembro/26</td><td class="r num">2.207</td><td class="r num">2.691</td><td class="r num neg">−484</td></tr>
+    <tr><td>Janeiro/27 <span class="muted">(com horas extras ~R$ 415)</span></td><td class="r num">1.543</td><td class="r num">2.190</td><td class="r num neg">−647</td></tr>
+    <tr><td>Fevereiro</td><td class="r num">1.128</td><td class="r num">1.944</td><td class="r num neg">−816</td></tr>
+    <tr><td>Março</td><td class="r num">1.128</td><td class="r num">1.829</td><td class="r num neg">−701</td></tr>
+    <tr><td>Abril</td><td class="r num">1.128</td><td class="r num">1.700</td><td class="r num neg">−572</td></tr>
+    <tr><td>Maio a agosto <span class="muted">(cada mês)</span></td><td class="r num">1.128</td><td class="r num">1.689</td><td class="r num neg">−561</td></tr>
+    <tr><td>Setembro <span class="muted">(acaba o 99Pay)</span></td><td class="r num">1.128</td><td class="r num">1.288</td><td class="r num neg">−160</td></tr>
+    <tr><td>Outubro <span class="muted">(acabam Pan e Caixa)</span></td><td class="r num">1.128</td><td class="r num">848</td><td class="r num pos">+280</td></tr>
+    <tr><td>Novembro</td><td class="r num">1.128</td><td class="r num">754</td><td class="r num pos">+374</td></tr>
+    <tr><td>Dezembro/27 em diante</td><td class="r num">1.128</td><td class="r num">621</td><td class="r num pos">+507</td></tr>
+    <tr class="total"><td>Falta somada, dez/26 a set/27</td><td></td><td></td><td class="r num neg">~−5.620</td></tr>
   </tbody>
 </table></div>
-<p>Dezembro fecha no zero. Em janeiro e fevereiro faltam ~R$ 710, contando a última parcela da Geru e o resto do PicPay (~R$ 140). As horas extras de janeiro (~R$ 415) cobrem parte disso; ainda faltam ~R$ 295. De março a agosto faltam ~R$ 135 por mês, <strong>a não ser que o Pan seja quitado</strong>. Com o Pan quitado, o mês fecha no azul (~R$ 33).</p>
-
-<div class="note good">
-  <p><strong>Quando entrar dinheiro a mais (horas extras de janeiro, freela):</strong> ele não fica livre para gastar. Use nesta ordem:</p>
-  <ol class="rules">
-    <li>Cobrir o que falta em janeiro e fevereiro (~R$ 710, já contando o resto do PicPay), para nenhuma conta atrasar.</li>
-    <li>Juntar para quitar o Pan (~R$ 730 no fim de fevereiro). Peça o valor exato no app antes de pagar.</li>
-    <li>Se ainda sobrar, reserva para imprevistos.</li>
-  </ol>
-  <p><strong>Para estimar antes de cair:</strong> seu salário por hora é R$ 10,50 (R$ 2.310 ÷ 220 h). Cada hora extra a 100% (domingo ou feriado) vale R$ 21 bruto, ou ~R$ 23 líquido já com o reflexo no DSR e o INSS. Cada hora a 50% vale R$ 15,75 bruto, ou ~R$ 17 líquido.</p>
-  <p><strong>Seu banco de horas hoje (24h09 em dias normais):</strong> 24,15 h × R$ 15,75 = R$ 380 bruto. Com o reflexo no DSR e o INSS, ficam uns <strong>R$ 415 a R$ 430 líquido</strong>, o que cobre quase tudo o que falta em janeiro e fevereiro. O valor sobe se você fizer mais horas e cai se tirar folga com elas.</p>
-  <p>As horas extras não entraram nas contas desta página: tudo o que vier é a mais.</p>
-</div>
+<p>Cada renegociação que baixar uma parcela melhora todos esses meses. Quitar o Pan, por exemplo, melhora cada mês de março a setembro em R$ 167,63.</p>
 
 <h2>Como fechar a conta</h2>
-<div class="lever"><div class="n">1</div><div><strong>Renda extra de ~R$ 1.440 até fevereiro.</strong> Freelas de design pelo seu MEI, ou vender algo parado. As horas extras de janeiro já contam para essa meta: pelo banco de horas atual (~R$ 415), faltariam uns R$ 1.025. Primeiro, cobrir o que falta em janeiro e fevereiro (~R$ 710). Depois, quitar o empréstimo Pan: ~R$ 730 no fim de fevereiro (antes disso o valor é maior, até ~R$ 845 em dezembro). O Pan cobra 13,5% ao mês. Quitar em fevereiro evita ~R$ 440 de juros e libera R$ 167,63 por mês até setembro. Peça o valor de quitação no app do Pan: por lei, quitar antes desconta os juros.</div></div>
-<div class="lever"><div class="n">2</div><div><strong>Internet mais barata.</strong> De R$ 179,99 para um plano de ~R$ 100 economiza ~R$ 80 por mês. Vale perguntar à TIM por um combo com o celular.</div></div>
-<div class="lever"><div class="n">3</div><div><strong>Portabilidade dos consignados.</strong> Os seus custam ~5% ao mês (Nubank 4,95%, 21 Bank 4,98%). Pela Carteira de Trabalho Digital dá para receber propostas de outros bancos. Com uma taxa menor, o desconto no salário cai e o líquido sobe. Não aceite “troco” (dinheiro extra) na portabilidade.</div></div>
-<div class="lever"><div class="n">4</div><div><strong>Se não der: Lei do Superendividamento (Lei 14.181/2021).</strong> Procure a Defensoria Pública da Bahia ou o Procon-BA e diga que está em situação de superendividamento. Eles chamam todos os credores juntos para montar um plano de pagamento que preserva o mínimo para você viver. É gratuito.</div></div>
+<div class="lever"><div class="n">1</div><div><strong>Defensoria Pública da Bahia ou Procon-BA (Lei do Superendividamento).</strong> Eles chamam todos os credores juntos para montar um plano de pagamento que caiba na renda e preserve o mínimo para você viver. É gratuito. Com uns R$ 5.600 faltando até setembro, este é o caminho principal, não o plano B.</div></div>
+<div class="lever"><div class="n">2</div><div><strong>Renegociar as maiores parcelas:</strong> 99Pay (R$ 401,12), Caixa (R$ 221,61 + parcelas antigas) e Amazon. Prazo maior agora, e depois da virada você antecipa parcelas com desconto dos juros.</div></div>
+<div class="lever"><div class="n">3</div><div><strong>Dinheiro extra vai primeiro para quitar o Pan.</strong> Ele cobra 13,5% ao mês, e quitar custa de ~R$ 730 a R$ 890, conforme o mês. Isso libera R$ 167,63 por mês até setembro. Peça o valor no app do Pan: por lei, quitar antes desconta os juros. Freelas de design pelo seu MEI contam aqui.</div></div>
+<div class="lever"><div class="n">4</div><div><strong>Internet mais barata.</strong> Trocar o plano de R$ 179,99 por um de ~R$ 100 já está nas contas a partir de fevereiro. Vale perguntar à TIM por um combo com o celular.</div></div>
+<div class="lever"><div class="n">5</div><div><strong>Portabilidade dos consignados.</strong> Os seus custam ~5% ao mês. Pela Carteira de Trabalho Digital dá para receber propostas de outros bancos. Com taxa menor, o desconto no salário cai. Não aceite “troco” na portabilidade.</div></div>
+
+<div class="note good">
+  <p><strong>Quando entrar dinheiro a mais (horas extras, freela):</strong> ele não fica livre para gastar. Use para cobrir o que falta no mês, para nada atrasar; depois, para quitar o Pan.</p>
+  <p><strong>Suas horas extras:</strong> seu salário por hora é R$ 10,50. Cada hora a 50% (dia normal) vale R$ 15,75 bruto, ou ~R$ 17 líquido; cada hora a 100% (domingo ou feriado), ~R$ 23 líquido. O banco de horas de hoje (24h09 em dias normais) dá uns <strong>R$ 415 a R$ 430 líquidos</strong>, já contados em janeiro.</p>
+</div>
 
 <div class="note info">
   <p><strong>Duas coisas que jogam a seu favor:</strong></p>
-  <p>• No <strong>Registrato</strong> (Banco Central, entrando com a conta gov.br) você vê todas as dívidas no seu CPF, para conferir se não falta nenhuma.</p>
-  <p>• Os juros do cartão têm teto: no rotativo e no parcelamento de fatura, juros e encargos não podem passar do valor original da dívida (Lei 14.690/2023). O aviso está nas suas próprias faturas.</p>
+  <p>• No <strong>Registrato</strong> (Banco Central, com a conta gov.br) você vê todas as dívidas no seu CPF, para conferir se não falta nenhuma.</p>
+  <p>• Os juros do cartão têm teto: no rotativo, no parcelamento de fatura e nas renegociações, juros e encargos não podem passar do valor original da dívida (Lei 14.690/2023).</p>
 </div>
 
 <h2>Todas as dívidas, da mais cara para a mais barata</h2>
 <div class="table-wrap"><table class="stack nochk" data-cols="name,owed,rate,why">
   <thead><tr><th>Dívida</th><th>Quanto</th><th class="r">Juros ao mês</th><th>Plano</th></tr></thead>
   <tbody>
-    <tr><td>PicPay (cartão)</td><td class="num">R$ 299,73</td><td class="r num">18,70%</td><td class="why">quitar em 15/12</td></tr>
-    <tr><td>Nubank (cartão)</td><td class="num">R$ 2.156,83</td><td class="r num">16,1–16,3%</td><td class="why">mínimo agora · melhor oferta até aqui: 18 × R$ 235,48</td></tr>
-    <tr><td>Revolut (cartão)</td><td class="num">R$ 48,55</td><td class="r num">14,99%</td><td class="why">quitar em 16/12</td></tr>
-    <tr><td>Itaú (cartão)</td><td class="num">R$ 121,65</td><td class="r num">14,00%</td><td class="why">quitar em 15/12</td></tr>
-    <tr><td>Empréstimo Pan</td><td class="num">12 × R$ 167,63 (a de out/26 atrasada)</td><td class="r num">13,50%</td><td class="why">pagar out + nov até 30/11 · quitar com renda extra</td></tr>
-    <tr><td>Caixa (cartão)</td><td class="num">R$ 1.625,26 + R$ 886,24 em parcelas</td><td class="r num">13,10% / 9,30%</td><td class="why">11x agora · renegociar</td></tr>
-    <tr><td>Amazon / Bradescard (cartão)</td><td class="num">R$ 944,33 + R$ 827,58 em parcelas</td><td class="r num">11,20% / 10,70%</td><td class="why">mínimo agora · renegociar</td></tr>
+    <tr><td>PicPay (cartão)</td><td class="num">R$ 299,73</td><td class="r num">18,70%</td><td class="why">mínimo hoje · quitar em 30/11</td></tr>
+    <tr><td>Revolut (cartão)</td><td class="num">R$ 48,55</td><td class="r num">14,99%</td><td class="why">mínimo hoje · quitar em 30/11</td></tr>
+    <tr><td>Itaú (cartão)</td><td class="num">R$ 121,65</td><td class="r num">14,00%</td><td class="why">mínimo hoje · quitar em 15/12</td></tr>
+    <tr><td>Empréstimo Pan</td><td class="num">12 × R$ 167,63 (outubro e novembro atrasadas)</td><td class="r num">13,50%</td><td class="why">outubro hoje, novembro até 30/11 · quitar com dinheiro extra</td></tr>
+    <tr><td>Amazon / Bradescard (cartão)</td><td class="num">R$ 944,33 + R$ 827,58 em parcelas antigas</td><td class="r num">11,20% / 10,70%</td><td class="why">mínimo hoje · renegociar antes de 15/12</td></tr>
+    <tr><td>Caixa (cartão)</td><td class="num">11x: R$ 247,45 hoje + 10 × R$ 221,61 (até set/27) + R$ 886,24 em parcelas antigas</td><td class="r num">9,30%</td><td class="why">parcelar hoje · pedir mais prazo</td></tr>
+    <tr><td>Nubank (cartão)</td><td class="num">R$ 2.156,83 → R$ 243,12 por mês, sem entrada</td><td class="r num">~8,8% se forem 18x</td><td class="why">parcelado · confirmar nº de parcelas</td></tr>
     <tr><td>Nubank PJ (cartão)</td><td class="num">R$ 206,26 em parcelas + TIM</td><td class="r num">16,1% se atrasar</td><td class="why">pagar o total todo mês · não usar</td></tr>
-    <tr><td>99Pay</td><td class="num">10 × R$ 401,12 (até ago/27)</td><td class="r num">não informado</td><td class="why">em dia · pedir valor de quitação</td></tr>
-    <tr><td>Geru</td><td class="num">3 × R$ 102,00 (a 2ª venceu 15/11; última em 15/01/27)</td><td class="r num">não informado</td><td class="why">pagar em 30/11, 15/12 e 15/01</td></tr>
-    <tr><td>Acordo Serasa</td><td class="num">44 × R$ 74,27 (até jun/2030; a 5ª venceu 14/11)</td><td class="r num">não informado</td><td class="why">pagar em 16/11 · nunca atrasar (o acordo pode cair)</td></tr>
-    <tr><td>Mercado Pago</td><td class="num">R$ 68,43 + 11 × R$ 66,06</td><td class="r num">não informado</td><td class="why">pagar a atrasada · manter em dia</td></tr>
-    <tr><td>Fatura PAN</td><td class="num">R$ 151,75 (venceu 12/11)</td><td class="r num">não vi (PDF com senha)</td><td class="why">pagar e não usar mais</td></tr>
+    <tr><td>99Pay</td><td class="num">10 × R$ 401,12 (até ago/27)</td><td class="r num">não informado</td><td class="why">a de novembro em 30/11 · pedir prazo maior</td></tr>
+    <tr><td>Geru</td><td class="num">3 × R$ 102,00 (hoje, 15/12 e 15/01)</td><td class="r num">não informado</td><td class="why">em dia</td></tr>
+    <tr><td>Acordo Serasa</td><td class="num">44 × R$ 74,27 (até jun/2030)</td><td class="r num">não informado</td><td class="why">nunca atrasar: o acordo pode cair</td></tr>
+    <tr><td>Mercado Pago</td><td class="num">R$ 68,43 + 11 × R$ 66,06</td><td class="r num">não informado</td><td class="why">a atrasada hoje · manter em dia</td></tr>
+    <tr><td>Fatura PAN</td><td class="num">R$ 151,75 (venceu 12/11)</td><td class="r num">não vi (PDF com senha)</td><td class="why">pagar em 30/11 e não usar mais</td></tr>
     <tr><td>Consignado Nubank (salário)</td><td class="num">R$ 638,29 até jun/2030</td><td class="r num">4,95%</td><td class="why">automático · ver portabilidade</td></tr>
     <tr><td>Consignado 21 Bank (salário)</td><td class="num">R$ 141,82 até nov/2030</td><td class="r num">4,98%</td><td class="why">automático · ver portabilidade</td></tr>
   </tbody>
@@ -341,14 +339,16 @@ footer{margin-top:3rem;color:var(--muted);font-size:.85rem;border-top:1px solid 
 
 <h2>Para conferir</h2>
 <ul class="checks">
-  <li><input type="checkbox" data-k="c-1" aria-label="conferido"><span><strong>Datas do 13º</strong> com o RH: 1ª parcela até 30/11; 2ª até 18/12 (~R$ 970).</span></li>
-  <li><input type="checkbox" data-k="c-2" aria-label="conferido"><span><strong>Fatura PAN:</strong> tem compras parceladas que vão cair nos próximos meses? Se tiver, elas entram em dezembro.</span></li>
-  <li><input type="checkbox" data-k="c-3" aria-label="conferido"><span><strong>Internet TIM:</strong> qual o dia de vencimento?</span></li>
-  <li><input type="checkbox" data-k="c-4" aria-label="conferido"><span><strong>Salário de novembro:</strong> deve cair só ~R$ 216 no começo de dezembro, porque a partir dele entra o desconto do 21 Bank (R$ 141,82), além do Nubank (R$ 638,29).</span></li>
-  <li><input type="checkbox" data-k="c-5" aria-label="conferido"><span><strong>MEI:</strong> se o DAS mensal estiver ativo, é mais uma conta (~R$ 80 a R$ 90 por mês) que não entrou neste plano.</span></li>
+  <li><input type="checkbox" data-k="c-nu" aria-label="conferido"><span><strong>Nubank:</strong> são 18 parcelas de R$ 243,12? A 1ª vence em 16/12? Se forem 12, a taxa é bem menor (~5% ao mês) e o plano termina antes.</span></li>
+  <li><input type="checkbox" data-k="c-13" aria-label="conferido"><span><strong>13º com o RH:</strong> 1ª parcela até 30/11; 2ª até 18/12 (~R$ 970). Pedir que a 2ª caia até 14/12.</span></li>
+  <li><input type="checkbox" data-k="c-cx" aria-label="conferido"><span><strong>Caixa:</strong> o app oferece parcelamento em mais de 11x?</span></li>
+  <li><input type="checkbox" data-k="c-int" aria-label="conferido"><span><strong>Internet TIM:</strong> qual o dia de vencimento?</span></li>
+  <li><input type="checkbox" data-k="c-pan" aria-label="conferido"><span><strong>Fatura PAN:</strong> tem compras parceladas que vão cair nos próximos meses?</span></li>
+  <li><input type="checkbox" data-k="c-sal" aria-label="conferido"><span><strong>Salário de novembro:</strong> deve cair só ~R$ 216 no começo de dezembro, porque já desconta o 21 Bank (R$ 141,82) além do Nubank (R$ 638,29).</span></li>
+  <li><input type="checkbox" data-k="c-mei" aria-label="conferido"><span><strong>MEI:</strong> se o DAS mensal estiver ativo, é mais uma conta (~R$ 80 a R$ 90 por mês) que não entrou neste plano.</span></li>
 </ul>
 
-<footer>Montado a partir dos documentos da pasta Plano_Gastos. Os valores de dezembro em diante são estimativas: confira sempre no app antes de pagar. As marcações desta página ficam salvas só neste navegador.</footer>
+<footer>Os valores de dezembro em diante são estimativas: confira sempre no app antes de pagar. As marcações desta página ficam salvas só neste navegador.</footer>
 
 </main>
 <script>
@@ -376,7 +376,7 @@ footer{margin-top:3rem;color:var(--muted);font-size:.85rem;border-top:1px solid 
   });
 })();
 (function(){
-  var KEY='plano-gastos-2026';
+  var KEY='plano-gastos-v3';
   var state={};
   try{ state=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(e){ state={}; }
   function mark(cb){
